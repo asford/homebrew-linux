@@ -77,6 +77,30 @@ class Boost155 < Formula
   option "with-mpi", "Build with MPI support"
   option :cxx11
 
+  option "with-atomic", "Build with atomic support."
+  option "with-chrono", "Build with chrono support."
+  option "with-context", "Build with context support."
+  option "with-coroutine", "Build with coroutine support."
+  option "with-date_time", "Build with date_time support."
+  option "with-exception", "Build with exception support."
+  option "with-filesystem", "Build with filesystem support."
+  option "with-graph", "Build with graph support."
+  option "with-graph_parallel", "Build with graph_parallel support."
+  option "with-iostreams", "Build with iostreams support."
+  option "with-locale", "Build with locale support."
+  option "with-log", "Build with log support."
+  option "with-math", "Build with math support."
+  option "with-program_options", "Build with program_options support."
+  option "with-random", "Build with random support."
+  option "with-regex", "Build with regex support."
+  option "with-serialization", "Build with serialization support."
+  option "with-signals", "Build with signals support."
+  option "with-system", "Build with system support."
+  option "with-test", "Build with test support."
+  option "with-thread", "Build with thread support."
+  option "with-timer", "Build with timer support."
+  option "with-wave", "Build with wave support."
+
   depends_on :python => :optional
   depends_on :python3 => :optional
   depends_on UniversalPython if build.universal? && build.with?("python")
@@ -180,6 +204,30 @@ class Boost155 < Formula
     without_libraries << "python" if build.without?("python") \
                                       && build.without?("python3")
     without_libraries << "mpi" if build.without? "mpi"
+
+    without_libraries << "atomic" if build.without? "atomic"
+    without_libraries << "chrono" if build.without? "chrono"
+    without_libraries << "context" if build.without? "context"
+    without_libraries << "coroutine" if build.without? "coroutine"
+    without_libraries << "date_time" if build.without? "date_time"
+    without_libraries << "exception" if build.without? "exception"
+    without_libraries << "filesystem" if build.without? "filesystem"
+    without_libraries << "graph" if build.without? "graph"
+    without_libraries << "graph_parallel" if build.without? "graph_parallel"
+    without_libraries << "iostreams" if build.without? "iostreams"
+    without_libraries << "locale" if build.without? "locale"
+    without_libraries << "log" if build.without? "log"
+    without_libraries << "math" if build.without? "math"
+    without_libraries << "program_options" if build.without? "program_options"
+    without_libraries << "random" if build.without? "random"
+    without_libraries << "regex" if build.without? "regex"
+    without_libraries << "serialization" if build.without? "serialization"
+    without_libraries << "signals" if build.without? "signals"
+    without_libraries << "system" if build.without? "system"
+    without_libraries << "test" if build.without? "test"
+    without_libraries << "thread" if build.without? "thread"
+    without_libraries << "timer" if build.without? "timer"
+    without_libraries << "wave" if build.without? "wave"
 
     bargs << "--without-libraries=#{without_libraries.join(",")}"
 
